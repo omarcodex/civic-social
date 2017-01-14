@@ -19,7 +19,9 @@ class WelcomeController < ApplicationController
     end
 
     # Show the response in an appropriate form.
-    render :json => response.body
+    render :json => response.body # <-- Nice way to debug.
+
+    # @world = response.body
   end
 
 end
