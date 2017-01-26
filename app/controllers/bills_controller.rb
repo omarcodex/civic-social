@@ -38,6 +38,22 @@ class BillsController < ApplicationController
 
   def show
 
+    @bill_id = params[:id]
+    uri = URI.parse("https://api.propublica.org/congress/v1/115/bills/#{@bill_id}.json")
+
+    request = Net::HTTP::Get.new(uri)
+    request["X-Api-Key"] = ENV['API_KEY']
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    @raw_data = JSON.parse(response.body)
+    render :show
+
 
   end
 

@@ -3,8 +3,11 @@
   <ul>
   <% @all_bills.map do |bill| %>
     <li>
-      <a href=""><%= bill[:number] %></a>
+      <% y = bill[:link].match(/bills\/(.*).json/)[1] %>
+      <a href="/bills/<%= y %>"><%= bill[:number] %></a>
       <p><%= bill[:title] %></p>
+      <p><%= bill[:link] %></p>
+      <p><%= y = bill[:link].match(/bills\/(.*).json/)[1] %></p>
     </li>
   <% end %>
   </ul>
