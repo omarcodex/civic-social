@@ -51,9 +51,11 @@ class BillsController < ApplicationController
       http.request(request)
     end
 
-    @raw_data = JSON.parse(response.body)
-    render :show
+    raw_data_all = JSON.parse(response.body)
 
+    @raw_data_result_only = raw_data_all["results"].first
+
+    render :show
 
   end
 
