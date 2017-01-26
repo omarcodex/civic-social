@@ -1,0 +1,58 @@
+
+require 'net/http'
+require 'json'
+
+uri = URI.parse("https://api.propublica.org/congress/v1/115/bills/{bill-id}/cosponsors.json")
+
+request = Net::HTTP::Get.new(uri)
+request["X-Api-Key"] = "9O5X5JhWVX4MxQrN4mMHM1Vy6iTPFYfXax1hBLP8"
+req_options = {
+  use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+
+body = JSON.parse(response.body)
+body.to_json
+members = body["results"].first["members"]
+members_twitter = members.map { | person| person["twitter_account"] }  # This will get you the list of twitter handles.
+
+
+#####
+
+
+require 'net/http'
+require 'json'
+
+uri = URI.parse("https://api.propublica.org/congress/v1/115/senate/bills/updated.json")
+
+request = Net::HTTP::Get.new(uri)
+request["X-Api-Key"] = "9O5X5JhWVX4MxQrN4mMHM1Vy6iTPFYfXax1hBLP8"
+req_options = {
+  use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+
+body = JSON.parse(response.body)
+
+## to get the title of the first bill in the list.
+
+bills = body["results"].first["bills"]
+
+# This will show you all the titles of the updated bills:
+
+headlines = bills.map { |bill| p bill["title"] }
+
+urlnumbers = headlines = bills.map { |bill| p bill["url_number"] }
+
+# Read out list of titles:
+headlines.each { |head| puts "BILL: #{head} \n" }
+
+# And then you have to get the url_number, and from there go directly to the bill number. Like so:
+
+#https://api.propublica.org/congress/v1/{congress}/bills/{bill-id}/cosponsors.json

@@ -1,0 +1,8 @@
+<!---debug><h2>Hello, <%= if @all_bills then @all_bills else "world" end %> !</h2><--->
+<div class='all-items'>
+  <ul>
+  <% @all_bills.map do |bill| %>
+    <li><a href=""><%= bill[:number] %></a></li>
+  <% end %>
+  </ul>
+</div>
