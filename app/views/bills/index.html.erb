@@ -2,7 +2,10 @@
 <div class='all-items'>
   <ul>
   <% @all_bills.map do |bill| %>
-    <li><a href=""><%= bill[:number] %></a></li>
+    <li>
+      <a href=""><%= bill[:number] %></a>
+      <p><%= bill[:title] %></p>
+    </li>
   <% end %>
   </ul>
 </div>

@@ -27,11 +27,13 @@ class BillsController < ApplicationController
     recent_bills.each do |hash|
       bill = {}
       bill[:number] = hash["number"]
+      bill[:title] = hash["title"]
+      bill[:link] = hash["bill_uri"]
       @all_bills << bill
      end
 
   render :index
-  
+
   end
 
   def show
