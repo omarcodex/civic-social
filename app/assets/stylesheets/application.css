@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+ body { padding-top: 70px; }
+
+.all-bills {
+
+}
+
+.bill-block {
+  padding: 1em;
+  width: auto;
+
+}
+
+li:hover {
+
+  background-color: yellow;
+  z-index: 50;
+  height: auto;
+  transform: scale(1.1,1.1);
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
+  margin-left: 1em;
+  padding: 5px 5px 5px 5px;
+}

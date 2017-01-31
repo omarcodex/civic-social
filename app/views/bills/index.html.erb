@@ -1,8 +1,9 @@
+
 <!---debug><h2>Hello, <%= if @all_bills then @all_bills else "world" end %> !</h2><--->
-<div class='all-items'>
+<div class='all-bills'>
   <ul>
   <% @all_bills.map do |bill| %>
-    <li>
+    <li class='block-bill'>
       <% y = bill[:link].match(/bills\/(.*).json/)[1] %>
       <a href="/bills/<%= y %>"><%= bill[:number] %></a>
       <p><%= bill[:title] %></p>
@@ -11,4 +12,7 @@
     </li>
   <% end %>
   </ul>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
 </div>
