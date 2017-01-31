@@ -5,32 +5,31 @@ class BillsController < ApplicationController
 
   def index
 
-    uri = URI.parse("https://api.propublica.org/congress/v1/115/senate/bills/introduced.json")
+    raw_senate_data = JSON.parse(get_bill_data_from_API("senate","introduced").body)
 
-    request = Net::HTTP::Get.new(uri)
-    request["X-Api-Key"] = ENV['API_KEY']
-    req_options = {
-      use_ssl: uri.scheme == "https",
-    }
+    raw_house_data = JSON.parse(get_bill_data_from_API("house","introduced").body)
 
-    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-      http.request(request)
-    end
-
-    raw_data = JSON.parse(response.body)
-
-    recent_bills = raw_data["results"].first["bills"]
+    recent_senate_bills = raw_senate_data["results"].first["bills"]
+    recent_house_bills = raw_house_data["results"].first["bills"]
 
     @all_bills = []
     @bill = {}
 
-    recent_bills.each do |hash|
+    recent_senate_bills.each do |hash|
       bill = {}
       bill[:number] = hash["number"]
       bill[:title] = hash["title"]
       bill[:link] = hash["bill_uri"]
       @all_bills << bill
      end
+
+    recent_house_bills.each do |hash|
+       bill = {}
+       bill[:number] = hash["number"]
+       bill[:title] = hash["title"]
+       bill[:link] = hash["bill_uri"]
+       @all_bills << bill
+    end
 
   render :index
 
@@ -64,6 +63,26 @@ class BillsController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+
+  def get_bill_data_from_API(chamber, type)
+
+    uri = URI.parse("https://api.propublica.org/congress/v1/115/#{chamber}/bills/#{type}.json")
+
+    request = Net::HTTP::Get.new(uri)
+    request["X-Api-Key"] = ENV['API_KEY']
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    return response
+
   end
 
 end
