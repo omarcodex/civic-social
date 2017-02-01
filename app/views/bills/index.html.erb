@@ -1,7 +1,7 @@
 
 <!---debug><h2>Hello, <%= if @all_bills then @all_bills else "world" end %> !</h2><--->
 <div class='all-bills'>
-  <ul>
+  <ul class='bill-list'>
   <% @all_bills.map do |bill| %>
     <li class='block-bill'>
       <% y = bill[:link].match(/bills\/(.*).json/)[1] %>

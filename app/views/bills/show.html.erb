@@ -1,34 +1,36 @@
-<div class='header'>
-  <h1><%= @raw_data_result_only["congress"] %>th Congress</h1>
-  <h2><%= @raw_data_result_only["bill"] %></h2>
-  <h3><%= @raw_data_result_only["title"] %></h3>
-</div>
-<div class='one-item'>
-  <ul>
-    <h3>About</h3>
-    <li>Introduced on: <%= @raw_data_result_only["introduced_date"] %></li>
-    <li>Sponsor:
-      <% member = @raw_data_result_only["sponsor_uri"].match(/members\/(.*).json/)[1] %>
-        <a href="/members/<%= member %>"><%= @raw_data_result_only["sponsor"] %></a>
-    </li>
-    <li>No. cosponsors: <%= @raw_data_result_only["cosponsors"] %></li>
-    <li>Responsible Committee: <%= @raw_data_result_only["committees"] %></li>
-    <li>Latest major action done on: <%= @raw_data_result_only["latest_major_action_date"] %></li>
-  </ul>
-  <ul>
-    <h3>Actions Taken</h3>
-    <li>Latest: <%= @raw_data_result_only["latest_major_action"] %></li>
-    <li>House vote: <%= @raw_data_result_only["house_passage_vote"] %></li>
-    <li>Senate vote: <%= @raw_data_result_only["senate_passage_vote"] %></li>
-  </ul>
-  <ul>
-    <h3>History</h3>
-     <li>
-       <% @raw_data_result_only["actions"].map do |action| %>
-        <p><%= action["description"] %> Action taken on <%= action["datetime"] %></p>
-        <% end %>
+<div class='bill-show-page'>
+  <div class='header'>
+    <h1><%= @raw_data_result_only["congress"] %>th Congress</h1>
+    <h2><%= @raw_data_result_only["bill"] %></h2>
+    <h3><%= @raw_data_result_only["title"] %></h3>
+  </div>
+  <div class='one-item'>
+    <ul>
+      <h3>About</h3>
+      <li>Introduced on: <%= @raw_data_result_only["introduced_date"] %></li>
+      <li>Sponsor:
+        <% member = @raw_data_result_only["sponsor_uri"].match(/members\/(.*).json/)[1] %>
+          <a href="/members/<%= member %>"><%= @raw_data_result_only["sponsor"] %></a>
       </li>
-  </ul>
-  <nav>
-    <a href='/bills'>Return</a>
+      <li>No. cosponsors: <%= @raw_data_result_only["cosponsors"] %></li>
+      <li>Responsible Committee: <%= @raw_data_result_only["committees"] %></li>
+      <li>Latest major action done on: <%= @raw_data_result_only["latest_major_action_date"] %></li>
+    </ul>
+    <ul>
+      <h3>Actions Taken</h3>
+      <li>Latest: <%= @raw_data_result_only["latest_major_action"] %></li>
+      <li>House vote: <%= @raw_data_result_only["house_passage_vote"] %></li>
+      <li>Senate vote: <%= @raw_data_result_only["senate_passage_vote"] %></li>
+    </ul>
+    <ul>
+      <h3>History</h3>
+       <li>
+         <% @raw_data_result_only["actions"].map do |action| %>
+          <p><%= action["description"] %> Action taken on <%= action["datetime"] %></p>
+          <% end %>
+        </li>
+    </ul>
+    <nav>
+      <a href='/bills'>Return</a>
+  </div>
 </div>
