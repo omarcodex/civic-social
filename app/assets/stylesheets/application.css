@@ -20,6 +20,13 @@
 
  }
 
+ .welcome {
+   display: flex;
+   justify-content: center;
+   padding: 5%;
+
+ }
+
 .all-bills {
 
   padding: 10%;
