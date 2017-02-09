@@ -9,7 +9,7 @@
       <p><%= member[:party] %></p>
       <p><%= member[:state] %></p>
       <p><%= member[:next_election] %></p>
-      <p><%= member[:twitter_account] %></p>
+      <h3 class='twitter-handle'><a href="https://twitter.com/<%= member[:twitter_account]%> ">@<%= member[:twitter_account] %></a></h2>
     </li>
   <% end %>
   </ul>
