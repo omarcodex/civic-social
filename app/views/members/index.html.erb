@@ -5,8 +5,11 @@
     <li class='block-member'>
       <%= y = member[:link].match(/members\/(.*).json/)[1] %>
       <a href="/members/<%= y %>"><%= member[:link] %></a>
-      <p><%= member[:first_name] %></p>
-      <p><%= member[:last_name] %></p>
+      <p><%= member[:first_name] + " " + member[:last_name] %></p>
+      <p><%= member[:party] %></p>
+      <p><%= member[:state] %></p>
+      <p><%= member[:next_election] %></p>
+      <p><%= member[:twitter_account] %></p>
     </li>
   <% end %>
   </ul>

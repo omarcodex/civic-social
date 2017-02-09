@@ -20,6 +20,10 @@ class MembersController < ApplicationController
       member[:first_name] = hash["first_name"]
       member[:last_name] = hash["last_name"]
       member[:link] = hash["api_uri"]
+      member[:party] = hash["party"]
+      member[:state] = hash["state"]
+      member[:next_election] = hash["next_election"]
+      member[:twitter_account] = hash["twitter_account"]
       @all_members << member
      end
 
@@ -28,8 +32,14 @@ class MembersController < ApplicationController
        member[:first_name] = hash["first_name"]
        member[:last_name] = hash["last_name"]
        member[:link] = hash["api_uri"]
+       member[:party] = hash["party"]
+       member[:state] = hash["state"]
+       member[:next_election] = hash["next_election"]
+       member[:twitter_account] = hash["twitter_account"]
        @all_members << member
     end
+
+    @all_members.sort_by! { |member| member[:next_election] }
 
   render :index
 
