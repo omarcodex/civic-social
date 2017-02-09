@@ -42,6 +42,11 @@ li.block-bill {
   padding: 10%;
 }
 
+.members-show-page {
+
+  padding: 10%;
+}
+
 li:hover {
 
   background-color: yellow;

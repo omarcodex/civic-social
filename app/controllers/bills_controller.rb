@@ -88,5 +88,5 @@ class BillsController < ApplicationController
 end
 
 
-
+#
 # {"number"=>"S.230", "bill_uri"=>"https://api.propublica.org/congress/v1/115/bills/s230.json", "title"=>"A bill to amend the Internal Revenue Code of 1986 to allow a credit against income tax for facilities using a qualified methane conversion technology to provide transportation fuels and chemicals.", "sponsor_uri"=>"https://api.propublica.org/congress/v1/members/C001075.json", "introduced_date"=>"January 24, 2017", "cosponsors"=>"0", "committees"=>"Senate Finance Committee", "primary_subject"=>"", "latest_major_action_date"=>"January 24, 2017", "latest_major_action"=>"Read twice and referred to the Committee on Finance."}
