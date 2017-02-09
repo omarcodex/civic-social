@@ -1,0 +1,16 @@
+
+<div class='all-members'>
+  <ul class='members-list'>
+  <% @all_members.map do |member| %>
+    <li class='block-member'>
+      <%= y = member[:link].match(/members\/(.*).json/)[1] %>
+      <a href="/members/<%= y %>"><%= member[:link] %></a>
+      <p><%= member[:first_name] %></p>
+      <p><%= member[:last_name] %></p>
+    </li>
+  <% end %>
+  </ul>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+</div>
