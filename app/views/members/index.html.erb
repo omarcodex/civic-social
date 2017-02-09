@@ -1,0 +1,18 @@
+
+<div class='all-bills'>
+  <ul class='members-list'>
+  <% @all_members.map do |member| %>
+    <li class='block-bills'>
+      <% y = member[:link].match(/members\/(.*).json/)[1] %>
+      <a href="/members/<%= y %>"><h2><%= member[:first_name] + " " + member[:last_name] %></h2></a>
+      <p>Party: <%= member[:party] %></p>
+      <p>State: <%= member[:state] %></p>
+      <p>Next election: <%= member[:next_election] %></p>
+      <h3 class='twitter-handle'><a href="https://twitter.com/<%= member[:twitter_account]%> ">@<%= member[:twitter_account] %></a></h3>
+    </li>
+  <% end %>
+  </ul>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+</div>
