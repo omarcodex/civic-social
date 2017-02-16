@@ -47,6 +47,8 @@ class MembersController < ApplicationController
 
   def show
 
+    # Adding ProPubclica API data:
+
     @member_id = params[:id]
     uri = URI.parse("https://api.propublica.org/congress/v1/members/#{@member_id}.json")
 
@@ -63,6 +65,12 @@ class MembersController < ApplicationController
     raw_data_all = JSON.parse(response.body)
 
     @raw_data_result_only = raw_data_all["results"].first
+
+    # Adding Twitter API data:
+
+    twitter = twitter_client_setup
+    @user_tweets = twitter.user_timeline(@raw_data_result_only["twitter_account"])
+
 
     render :show
 
@@ -93,6 +101,17 @@ class MembersController < ApplicationController
 
     return response
 
+  end
+
+  def twitter_client_setup
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['TW_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TW_CONSUMER_SECRET']
+      config.access_token        = ENV['TW_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TW_ACCESS_SECRET']
+    end
+
+    return client
   end
 
 end

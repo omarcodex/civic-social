@@ -47,11 +47,34 @@ li.block-bill {
 
 .bill-show-page {
   padding: 10%;
+
+}
+
+.members-show-page {
+
+  display: flex;
+  flex-flow: row wrap;
+
+}
+
+.member-info {
+
+  /*display: block;
+  float: left;*/
+  flex: 1 100%;
+
+}
+
+.twitter-sidebar {
+
+  flex: 2 100%;
+
 }
 
 .members-show-page {
 
   padding: 10%;
+
 }
 
 li:hover {
