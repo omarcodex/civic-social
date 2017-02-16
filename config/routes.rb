@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'bills', to: 'bills#index'
   resources :members
   get 'members', to: 'members#index'
+  resources :committees
+  get 'committees', to: 'committees#index'
   root 'welcome#index'
 end

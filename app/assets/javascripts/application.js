@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// var imageError;
+
+$(document).ready(function(){
+
+   // jQuery methods go here...
+
+});

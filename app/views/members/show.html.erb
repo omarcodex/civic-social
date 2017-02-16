@@ -2,24 +2,42 @@
   <div class='header'>
     <h2><%= @raw_data_result_only["first_name"] + " " + @raw_data_result_only["last_name"]%></h2>
   <div class='one-item'>
+    <div id="pic-header">
+      <% @profile_pic_url = @raw_data_result_only["member_id"] %>
+      <% @profile_pic_url_prefix = @raw_data_result_only["member_id"].match(/^./) %>
+      <% if @profile_pic_url_prefix[0] %>
+        <img src='http://bioguide.congress.gov/bioguide/photo/<%= @profile_pic_url_prefix %>/<%= @profile_pic_url %>.jpg' onerror="this.style.display='none'">
+      <% end %>
+    </div>
     <ul>
       <h3>Stay Connected</h3>
        <li>
          <h3 class='twitter-handle'>
-           <a href="https://twitter.com/<%= @raw_data_result_only["twitter_account"]%>">@<%= @raw_data_result_only["twitter_account"]%>
+           Twitter: <a href="https://twitter.com/<%= @raw_data_result_only["twitter_account"]%>">@<%= @raw_data_result_only["twitter_account"]%>
            </a>
          </h3>
        </li>
+
+       <% if @raw_data_result_only["facebook_account"].length != 0 %>
        <li>
          Facebook: <a href="https://facebook.com/<%= @raw_data_result_only["facebook_account"]%>"><%= @raw_data_result_only["facebook_account"] %></a>
        </li>
+       <% end %>
+
+       <% if @raw_data_result_only["youtube_account"].length != 0 %>
        <li>
         Youtube: <a href="https://youtube.com/<%= @raw_data_result_only["youtube_account"]%>"><%= @raw_data_result_only["youtube_account"] %></a>
       </li>
+      <% end %>
+
+      <% if @raw_data_result_only["rss_url"].length != 0 %>
       <li>
         RSS Feed: <a href="<%= @raw_data_result_only["rss_url"] %>"><%= @raw_data_result_only["rss_url"] %></a>
      </li>
+        <% end %>
+
     </ul>
+
     <nav>
       <a href='/members'>Return</a>
   </div>
