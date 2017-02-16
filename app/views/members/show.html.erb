@@ -1,18 +1,15 @@
 <div class='members-show-page'>
-  <div class='header'>
+  <div class='member-info'>
     <h2><%= @raw_data_result_only["first_name"] + " " + @raw_data_result_only["last_name"]%></h2>
-  <div class='one-item'>
-    <div id="pic-header">
       <% @profile_pic_url = @raw_data_result_only["member_id"] %>
       <% @profile_pic_url_prefix = @raw_data_result_only["member_id"].match(/^./) %>
       <% if @profile_pic_url_prefix[0] %>
         <img src='http://bioguide.congress.gov/bioguide/photo/<%= @profile_pic_url_prefix %>/<%= @profile_pic_url %>.jpg' onerror="this.style.display='none'">
       <% end %>
-    </div>
+    <h3>Connect on Social Media:</h3>
     <ul>
-      <h3>Stay Connected</h3>
        <li>
-         <h3 class='twitter-handle'>
+         <h4 class='twitter-handle'>
            Twitter: <a href="https://twitter.com/<%= @raw_data_result_only["twitter_account"]%>">@<%= @raw_data_result_only["twitter_account"]%>
            </a>
          </h3>
@@ -37,8 +34,15 @@
         <% end %>
 
     </ul>
-
-    <nav>
-      <a href='/members'>Return</a>
   </div>
+  <div class='twitter-sidebar'>
+    <h3>What this legislator is saying:</h3>
+    <% @user_tweets.each do |tweet| %>
+    <p> <a href='https://twitter.com/<%= tweet.user.screen_name %>'>@<%= tweet.user.screen_name %></a>: <%= tweet.text %> </p><br>
+    <% end %>
+
+  </div>
+  <nav>
+    <a href='/members'>Return</a>
+  </nav>
 </div>
