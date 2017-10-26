@@ -39,7 +39,7 @@ class MembersController < ApplicationController
        @all_members << member
     end
 
-    @all_members.sort_by! { |member| member[:next_election] }
+    @all_members.sort_by! { |member| member[:next_election].to_i }
 
   render :index
 
