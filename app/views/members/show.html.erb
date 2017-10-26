@@ -15,19 +15,19 @@
          </h3>
        </li>
 
-       <% if @raw_data_result_only["facebook_account"].length != 0 %>
+       <% if @raw_data_result_only["facebook_account"] && @raw_data_result_only["facebook_account"].length != 0 %>
        <li>
          Facebook: <a href="https://facebook.com/<%= @raw_data_result_only["facebook_account"]%>"><%= @raw_data_result_only["facebook_account"] %></a>
        </li>
        <% end %>
 
-       <% if @raw_data_result_only["youtube_account"].length != 0 %>
+       <% if @raw_data_result_only["youtube_account"] && @raw_data_result_only["youtube_account"].length != 0 %>
        <li>
         Youtube: <a href="https://youtube.com/<%= @raw_data_result_only["youtube_account"]%>"><%= @raw_data_result_only["youtube_account"] %></a>
       </li>
       <% end %>
 
-      <% if @raw_data_result_only["rss_url"].length != 0 %>
+      <% if @raw_data_result_only["rss_url"] && @raw_data_result_only["rss_url"].length != 0 %>
       <li>
         RSS Feed: <a href="<%= @raw_data_result_only["rss_url"] %>"><%= @raw_data_result_only["rss_url"] %></a>
      </li>
