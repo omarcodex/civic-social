@@ -1,18 +1,26 @@
-
-<div class='all-bills'>
-  <ul class='members-list'>
-  <% @all_members.map do |member| %>
-    <li class='block-bills'>
+<div class='row'>
+  <div class="col-sm">
+  </div>
+  <div class="col-sm">
+  <% @all_members.each do |member| %>
       <% y = member[:link].match(/members\/(.*).json/)[1] %>
-      <a href="/members/<%= y %>"><h2><%= member[:first_name] + " " + member[:last_name] %></h2></a>
-      <p>Party: <%= member[:party] %></p>
-      <p>State: <%= member[:state] %></p>
-      <p>Next election: <%= member[:next_election] %></p>
-      <h3 class='twitter-handle'><a href="https://twitter.com/<%= member[:twitter_account]%> ">@<%= member[:twitter_account] %></a></h3>
-    </li>
+      <div class="card bg-dark text-white">
+          <div class="card-header text-center">
+            <a href="/members/<%= y %>"><%= member[:first_name] + " " + member[:last_name] %></a>
+          </div>
+          <div class="card-body text-center">
+            <p>Party: <%= member[:party] %></p>
+            <p>State: <%= member[:state] %></p>
+            <% if member[:next_election].present? %>
+              <p>Next election: <%= member[:next_election] %></p>
+            <% end %>
+            <% if member[:twitter_account].present? %>
+              <a class="card-link" href="https://twitter.com/<%= member[:twitter_account]%> ">@<%= member[:twitter_account] %></a>
+            <% end %>
+          </div>
+        </div>
   <% end %>
-  </ul>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
+  </div>
+  <div class="col-sm">
+  </div>
 </div>

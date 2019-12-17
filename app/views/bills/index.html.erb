@@ -1,15 +1,19 @@
-
-<div class='all-bills'>
-  <ul class='bill-list'>
-  <% @all_bills.map do |bill| %>
-    <li class='block-bill'>
+<div class='row'>
+  <div class="col">
+  </div>
+  <div class="col">
+    <% @all_bills.each do |bill| %>
       <% y = bill[:link].match(/bills\/(.*).json/)[1] %>
-      <a href="/bills/<%= y %>"><%= bill[:number] %></a>
-      <p><%= bill[:title] %></p>
-    </li>
-  <% end %>
-  </ul>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
+      <div class="card bg-dark text-white">
+        <div class="card-header text-center">
+          <a href="/bills/<%= y %>"><%= bill[:number] %></a>
+        </div>
+        <div class="card-body text-center">
+          <p><%= bill[:title] %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+  </div>
 </div>

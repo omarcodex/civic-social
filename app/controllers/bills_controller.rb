@@ -38,7 +38,7 @@ class BillsController < ApplicationController
   def show
 
     @bill_id = params[:id]
-    uri = URI.parse("https://api.propublica.org/congress/v1/115/bills/#{@bill_id}.json")
+    uri = URI.parse("https://api.propublica.org/congress/v1/116/bills/#{@bill_id}.json")
 
     request = Net::HTTP::Get.new(uri)
     request["X-Api-Key"] = ENV['API_KEY']
@@ -69,7 +69,7 @@ class BillsController < ApplicationController
 
   def get_bill_data_from_API(chamber, type)
 
-    uri = URI.parse("https://api.propublica.org/congress/v1/115/#{chamber}/bills/#{type}.json")
+    uri = URI.parse("https://api.propublica.org/congress/v1/116/#{chamber}/bills/#{type}.json") # TODO make dynamic and refactor
 
     request = Net::HTTP::Get.new(uri)
     request["X-Api-Key"] = ENV['API_KEY']

@@ -5,9 +5,9 @@ class MembersController < ApplicationController
 
   def index
 
-    raw_senate_members_data = JSON.parse(get_members_data_from_API(115,"senate").body)
+    raw_senate_members_data = JSON.parse(get_members_data_from_API(116,"senate").body)
 
-    raw_house_members_data = JSON.parse(get_members_data_from_API(115,"house").body)
+    raw_house_members_data = JSON.parse(get_members_data_from_API(116,"house").body)
 
     senate_members = raw_senate_members_data["results"].first["members"]
     house_members = raw_house_members_data["results"].first["members"]

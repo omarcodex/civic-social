@@ -14,24 +14,20 @@
  *= require_self
  */
 
- body {
+/* MAIN PAGE */
 
-   padding-top: 10%;
+nav {
+    padding-left: 25%;
+}
 
- }
-
- .welcome {
+.welcome {
    display: flex;
    justify-content: center;
-   padding: 5%;
+   padding-top: 5%;
+}
 
- }
-
+/* BILLS PAGE */
 .all-bills {
-
-  padding: 10%;
-
-
 }
 
 ul.bill-list {
@@ -39,47 +35,34 @@ ul.bill-list {
 }
 
 li.block-bill {
-
   padding: 1em;
   width: auto;
-
 }
 
 .bill-show-page {
-  padding: 10%;
-
 }
 
+/* MEMBERS PAGE */
 .members-show-page {
-
-  display: flex;
-  flex-flow: row wrap;
-
 }
 
 .member-info {
-
-  /*display: block;
-  float: left;*/
-  flex: 1 100%;
-
 }
 
 .twitter-sidebar {
-
-  flex: 2 100%;
-
 }
 
 .members-show-page {
-
-  padding: 10%;
-
 }
 
-li:hover {
+/* BOTH PAGES */
+ul {
+    list-style-type: none;
+}
 
-  background-color: yellow;
+li.block-bill:hover, li.block-bills:hover {
+  background-color: lightYellow;
+  /*
   z-index: 50;
   height: auto;
   transform: scale(1.2,1.2);
@@ -87,30 +70,5 @@ li:hover {
   margin-left: 1.1em;
   margin-right: 1.1em;
   padding: 10px;
-
-}
-
-.nav-item.nav-link {
-      display: flex;
-      justify-content: center;
-      padding-bottom: 3px;
-      -webkit-flex: 1;
-      border-radius: 3px;
-      border: solid 1px;
-      text-align: center;
-
-}
-
-.nav-logo {
-      font-size: 2em;
-      font-family: Georgia;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 3px;
-      -webkit-flex: 1;
-      border-radius: 3px;
-      border: solid grey 1px;
-      text-align: center;
-      color: darkblue;
-
+  */
 }
