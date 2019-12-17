@@ -12,7 +12,7 @@ gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+ gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,6 +35,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "actionview", ">= 5.0.7.2"
+gem "ffi", ">= 1.9.24"
+gem "activejob", ">= 5.0.7.1"
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.3.1"
+gem "nokogiri", ">= 1.10.4"
+gem "sprockets", ">= 3.7.2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
