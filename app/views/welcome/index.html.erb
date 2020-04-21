@@ -1,9 +1,8 @@
 <div class='welcome'>
 <!--in case mapbox doesn't load -->
-<img width="78%" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/KeySceneAtTheSigningOfTheConstitutionOfTheUnitedStates.jpg">
-<!-- <div id='map'></div> -->
+<div id='map'></div>
 
-<!-- <script>
+<script>
 mapboxgl.accessToken = '<%= @mapbox_token %>';
 var map = new mapboxgl.Map({
     container: 'map', // container id
@@ -17,9 +16,7 @@ var map = new mapboxgl.Map({
 map.addSource('ca-dist-10', {
     type: 'geojson',
     data: 'https://raw.githubusercontent.com/unitedstates/districts/gh-pages/cds/2016/CA-10/shape.geojson'
-}); -->
-
-
+});
 </script>
-
+<div class="card"><div class="card-body"><p>We are undergoing updates on this <a href="https://github.com/omarcodex">site</a>. Data provided by <a href="https://propublica.org">ProPublica.</a></p></div>
 </div>

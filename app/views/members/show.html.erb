@@ -1,5 +1,5 @@
-<div class='members-show-page'>
-  <div class='member-info'>
+<div class='card bg-light'>
+  <div class='card-body'>
     <h2><%= @raw_data_result_only["first_name"] + " " + @raw_data_result_only["last_name"]%></h2>
       <% @profile_pic_url = @raw_data_result_only["member_id"] %>
       <% @profile_pic_url_prefix = @raw_data_result_only["member_id"].match(/^./) %>
@@ -35,11 +35,12 @@
 
     </ul>
   </div>
-  <div class='twitter-sidebar'>
+</div>
+<div class='card bg-dark text-light'>
+  <div class ='card-body'>
     <h3>What this legislator is saying:</h3>
     <% @user_tweets.each do |tweet| %>
-    <p> <a href='https://twitter.com/<%= tweet.user.screen_name %>'>@<%= tweet.user.screen_name %></a>: <%= tweet.text %> </p><br>
+      <p> <a href='https://twitter.com/<%= tweet.user.screen_name %>'>@<%= tweet.user.screen_name %></a>: <%= tweet.text %> </p><br>
     <% end %>
-
   </div>
 </div>
